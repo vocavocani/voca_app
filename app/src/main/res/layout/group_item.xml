@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/group_img"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:background="@color/black" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_below="@+id/group_img">
+        <TextView
+            android:id="@+id/group_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="모임 이름"/>
+
+        <TextView
+            android:id="@+id/group_new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginStart="4dp"
+            android:layout_toRightOf="@+id/group_name"
+            android:visibility="gone"
+            android:text="NEW"
+            android:textSize="11sp"
+            android:textColor="@color/colorAccent"/>
+    </RelativeLayout>
+
+</RelativeLayout>
