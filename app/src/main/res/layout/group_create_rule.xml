@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/app_bar_layout"
+        android:id="@+id/toolbar_layout"/>
+
+    <RelativeLayout
+        android:id="@+id/group_tag_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar_layout"
+        android:paddingLeft="15dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:paddingRight="15dp">
+
+        <TextView
+            android:id="@+id/group_tag_label"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_centerVertical="true"
+            android:text="태그 설정"
+            android:textSize="13sp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/group_tag_label"
+            android:layout_toRightOf="@+id/group_tag_label"
+            android:hint="#태그 #태그 #태그"
+            android:textSize="13sp"
+            android:maxLines="1"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/group_rule_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:paddingRight="15dp"
+        android:layout_below="@+id/group_tag_area">
+
+        <TextView
+            android:id="@+id/group_rule_label"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="규칙 작성"
+            android:textSize="13sp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/group_rule_label"
+            android:gravity="top"
+            android:hint="모임 운영시 필요한 규칙을 작성해주세요!"
+            android:textSize="13sp"
+            android:lines="6"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/group_rule_area"
+        android:paddingLeft="15dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:paddingRight="15dp">
+
+        <TextView
+            android:id="@+id/group_open_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:text="모임 공개 여부"/>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/group_open_label"
+            android:layout_toRightOf="@+id/group_open_label"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/group_open"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:labelFor="@+id/group_open"
+                android:text="공개"/>
+
+            <RadioButton
+                android:id="@+id/group_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:labelFor="@+id/group_close"
+                android:text="비공개"/>
+        </RadioGroup>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/ok_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:padding="0dp"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:background="@color/colorAccent"
+        android:text="완료"
+        android:textSize="16sp"
+        android:textColor="@color/colorTitle"/>
+</RelativeLayout>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal">
+
+    <include layout="@layout/app_bar_layout"
+        android:id="@+id/toolbar_layout"/>
+
+    <ImageView
+        android:id="@+id/group_img"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/toolbar_layout"
+        android:src="@drawable/user_profile"/>
+
+    <Button
+        android:id="@+id/upload_group_img"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:padding="0dp"
+        android:layout_below="@+id/group_img"
+        android:layout_centerHorizontal="true"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:text="대표사진 등록"
+        android:textColor="@color/colorPrimary"/>
+    
+    <RelativeLayout
+        android:id="@+id/group_name_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:paddingRight="15dp"
+        android:layout_below="@+id/upload_group_img">
+
+        <TextView
+            android:id="@+id/group_name_label"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentTop="true"
+            android:text="모임 이름"
+            android:textSize="13sp"/>
+        <EditText
+            android:id="@+id/group_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/group_name_label"
+            android:layout_toRightOf="@+id/group_name_label"
+            android:gravity="top"
+            android:hint="설명"
+            android:textSize="13sp"
+            android:maxLines="1"
+            android:maxLength="6"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:paddingRight="15dp"
+        android:layout_below="@+id/group_name_area">
+
+        <TextView
+            android:id="@+id/group_desc_label"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentTop="true"
+            android:text="모임 소개"
+            android:textSize="13sp"/>
+
+        <EditText
+            android:id="@+id/group_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/group_desc_label"
+            android:layout_toRightOf="@+id/group_desc_label"
+            android:hint="설명"
+            android:textSize="13sp"
+            android:lines="5"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/next_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:padding="0dp"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:background="@color/colorPrimaryDark"
+        android:text="다음"
+        android:textSize="16sp"
+        android:textColor="@color/colorTitle"/>
+</RelativeLayout>
