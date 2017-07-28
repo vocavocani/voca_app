@@ -1,4 +1,4 @@
-package com.vvn.vocavocani;
+package com.vvn.vocavocani.home;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -6,6 +6,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.vvn.vocavocani.R;
 
 /**
  * Created by soo13 on 2017-07-27.

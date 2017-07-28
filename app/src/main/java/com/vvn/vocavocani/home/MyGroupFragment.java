@@ -1,4 +1,4 @@
-package com.vvn.vocavocani;
+package com.vvn.vocavocani.home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,10 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.vvn.vocavocani.GroupInfo;
+import com.vvn.vocavocani.R;
+import com.vvn.vocavocani.group.GroupCreateActivity;
 
 import java.util.ArrayList;
 

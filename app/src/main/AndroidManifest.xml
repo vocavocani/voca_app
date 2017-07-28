@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".home.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,30 +20,30 @@
         </activity>
 
         <activity
-            android:name=".ProfileActivity"
+            android:name=".user.ProfileActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".home.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".home.MainActivity" />
         </activity>
 
         <activity
-            android:name=".GroupCreateActivity"
+            android:name=".group.GroupCreateActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".home.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".home.MainActivity" />
         </activity>
 
         <activity
-            android:name=".GroupRuleActivity"
+            android:name=".group.GroupRuleActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:parentActivityName=".GroupCreateActivity">
+            android:parentActivityName=".group.GroupCreateActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".GroupCreateActivity" />
+                android:value=".group.GroupCreateActivity" />
         </activity>
     </application>
 

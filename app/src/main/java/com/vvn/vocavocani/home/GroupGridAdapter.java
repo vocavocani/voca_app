@@ -1,4 +1,4 @@
-package com.vvn.vocavocani;
+package com.vvn.vocavocani.home;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.vvn.vocavocani.GroupInfo;
+import com.vvn.vocavocani.R;
 
 import java.util.ArrayList;
 

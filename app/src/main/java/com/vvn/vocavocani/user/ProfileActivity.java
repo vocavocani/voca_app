@@ -1,4 +1,4 @@
-package com.vvn.vocavocani;
+package com.vvn.vocavocani.user;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import com.vvn.vocavocani.R;
 
 /**
  * Created by soo13 on 2017-07-28.

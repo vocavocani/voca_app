@@ -1,4 +1,4 @@
-package com.vvn.vocavocani;
+package com.vvn.vocavocani.home;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
