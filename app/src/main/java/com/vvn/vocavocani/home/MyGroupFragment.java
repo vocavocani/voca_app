@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.vvn.vocavocani.GroupInfo;
 import com.vvn.vocavocani.R;
+import com.vvn.vocavocani.group.GroupActivity;
 import com.vvn.vocavocani.group.GroupCreateActivity;
 
 import java.util.ArrayList;
@@ -94,6 +95,8 @@ public class MyGroupFragment extends android.support.v4.app.Fragment {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 Toast.makeText(getActivity(), "클릭 "+position, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(), GroupActivity.class);
+                startActivity(intent);
             }
         });
     }

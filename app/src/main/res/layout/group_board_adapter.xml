@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/board_item"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layout_marginStart="15dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginEnd="15dp"
+    android:layout_marginRight="15dp"
+    android:elevation="4dp"
+    android:padding="1dp"
+    android:background="@color/colorBackground">
+    <LinearLayout
+        android:id="@+id/board_writer_layout"
+        android:layout_width="50dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/writer_photo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/ic_launcher"
+            android:scaleType="fitCenter"/>
+        <TextView
+            android:id="@+id/writer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="글쓴이"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toEndOf="@+id/board_writer_layout"
+        android:layout_toRightOf="@+id/board_writer_layout"
+        android:layout_toStartOf="@+id/board_more_btn"
+        android:layout_toLeftOf="@+id/board_more_btn"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="게시물 제목"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/timestamp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2017.07.02 오전 1:22"
+            android:textSize="14sp"/>
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/board_more_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="0dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:src="@drawable/ic_add_black_24dp"
+        android:scaleType="fitCenter"/>
+    
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/board_writer_layout"
+        android:layout_above="@+id/board_reply_layout"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:text="오직 우리 청춘에서만 구할 수 있는 것이다 청춘은 인생의
+황금시대다 우리는 이 황금시대의 가치를 충분히 발휘하
+기 위하여 이 황금시대를 영원히 붙잡아 어쩌구 저쩌구"
+        android:ellipsize="end"/>
+
+    <RelativeLayout
+        android:id="@+id/board_reply_layout"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true">
+        <TextView
+            android:id="@+id/reply_title"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="댓글 "
+            android:textColor="@color/black"
+            android:textSize="14sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_toEndOf="@+id/reply_title"
+            android:layout_toRightOf="@+id/reply_title"
+            android:gravity="center"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="14sp"/>
+
+        <Button
+            android:id="@+id/reply_count"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:padding="0dp"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:text="댓글달기"
+            android:textColor="@color/black"
+            android:textSize="14sp"/>
+    </RelativeLayout>
+</RelativeLayout>
