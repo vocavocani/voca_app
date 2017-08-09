@@ -2,37 +2,30 @@ package com.vvn.vocavocani.group;
 
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.vvn.vocavocani.R;
 
-import java.util.ArrayList;
-
 public class GroupActivity extends AppCompatActivity
         implements AppBarLayout.OnOffsetChangedListener {
 
-    private static final float PERCENTAGE_TO_SHOW_TITLE_AT_TOOLBAR  = 0.9f;
     private static final float PERCENTAGE_TO_HIDE_TITLE_DETAILS     = 0.3f;
     private static final int ALPHA_ANIMATIONS_DURATION              = 200;
 
-    private boolean mIsTheTitleVisible          = false;
     private boolean mIsTheTitleContainerVisible = true;
 
-    private RelativeLayout mTitleContainer;
-    private TextView mTitle;
-    private AppBarLayout mAppBarLayout;
-    private GroupBoardAdapter groupBoardAdapter;
+    private Toolbar toolbar;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +51,21 @@ public class GroupActivity extends AppCompatActivity
                 return true;
             }
             case R.id.add_contents:
-                Toast.makeText(this, "Add contents popup", Toast.LENGTH_SHORT).show();
+                switch (tabLayout.getSelectedTabPosition()) {
+                    case 0:
+                        Toast.makeText(this, "Group Setting Btn", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 1:
+                        Toast.makeText(this, "Add board article", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 2:
+                        Toast.makeText(this, "Add problem popup", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 4:
+                        Toast.makeText(this, "Add question popup", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -69,8 +76,12 @@ public class GroupActivity extends AppCompatActivity
         int maxScroll = appBarLayout.getTotalScrollRange();
         float percentage = (float) Math.abs(offset) / (float) maxScroll;
 
-        handleAlphaOnTitle(percentage);
-        handleToolbarTitleVisibility(percentage);
+        if (tabLayout.getSelectedTabPosition() == 0) {
+            handleAlphaOnTitle(percentage, View.INVISIBLE);
+            //handleToolbarTitleVisibility(percentage);
+        } else {
+            handleAlphaOnTitle(percentage, View.VISIBLE);
+        }
     }
 
     private void layoutInit() {
@@ -81,8 +92,8 @@ public class GroupActivity extends AppCompatActivity
     }
 
     private void setToolbarLayout() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("");
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
         if (getSupportActionBar() != null) {
@@ -90,97 +101,79 @@ public class GroupActivity extends AppCompatActivity
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        mTitleContainer = (RelativeLayout) findViewById(R.id.group_layout);
-        mTitle = (TextView) findViewById(R.id.toolbar_title);
-        mAppBarLayout   = (AppBarLayout) findViewById(R.id.app_bar);
+        //AppBarLayout mAppBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
 
-        mAppBarLayout.addOnOffsetChangedListener(this);
-        startAlphaAnimation(mTitle, 0, View.INVISIBLE);
+        //mAppBarLayout.addOnOffsetChangedListener(this);
     }
 
     private void setContentLayout() {
 
-        //SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
+        viewPager = (ViewPager) findViewById(R.id.group_view_pager);
+        GroupPagerAdapter pagerAdapter = new GroupPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(pagerAdapter);
 
-        // RecyclerView 생성
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.board_list);
-        LinearLayoutManager layoutManager1 = new LinearLayoutManager(this);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(layoutManager1);
-
-        // groupBoardAdapter 생성하면서 연결
-        ArrayList<GroupBoardItem> boardItems = new ArrayList<>();
-        boardItems.add(new GroupBoardItem(0, "게시물 제목", 0, "게시자", "abc image", "2017.07.01 오전 1:38",
-                "오직 우리 청춘에서만 구할 수 있는 것이다 청춘은 인생의 " +
-                        "황금시대다 우리는 이 황금시대의 가치를 충분히 발휘하 " +
-                        "기 위하여 이 황금시대를 영원히 붙잡아 어쩌구 저쩌구오직 우리 청춘에서만 구할 수 있는 것이다 청춘은 인생의 " +
-                        "황금시대다 우리는 이 황금시대의 가치를 충분히 발휘하 " +
-                        "기 위하여 이 황금시대를 영원히 붙잡아 어쩌구 저쩌구", 4));
-        boardItems.add(new GroupBoardItem(0, "게시물 제목2", 0, "게시자2", "abc image", "2017.07.01 오전 1:31",
-                "오직 우리 청춘에서만 구할 수 있는 것이다 청춘은 인생의 " +
-                        "황금시대다 우리는 이 황금시대의 가치를 충분히 발휘하 " +
-                        "기 위하여 이 황금시대를 영원히 붙잡아 어쩌구 저쩌구오직 우리 청춘에서만 구할 수 있는 것이다 청춘은 인생의 " +
-                        "황금시대다 우리는 이 황금시대의 가치를 충분히 발휘하 " +
-                        "기 위하여 이 황금시대를 영원히 붙잡아 어쩌구 저쩌구", 2));
-        boardItems.add(new GroupBoardItem(0, "게시물 제목2", 0, "게시자2", "abc image", "2017.07.01 오전 1:31",
-                "오직 우리 청춘에서만 구할 수 있는 것이다 청춘은 인생의 " +
-                        "황금시대다 우리는 이 황금시대의 가치를 충분히 발휘하 " +
-                        "기 위하여 이 황금시대를 영원히 붙잡아 어쩌구 저쩌구오직 우리 청춘에서만 구할 수 있는 것이다 청춘은 인생의 " +
-                        "황금시대다 우리는 이 황금시대의 가치를 충분히 발휘하 " +
-                        "기 위하여 이 황금시대를 영원히 붙잡아 어쩌구 저쩌구", 2));
-        boardItems.add(new GroupBoardItem(0, "게시물 제목2", 0, "게시자2", "abc image", "2017.07.01 오전 1:31",
-                "오직 우리 청춘에서만 구할 수 있는 것이다 청춘은 인생의 " +
-                        "황금시대다 우리는 이 황금시대의 가치를 충분히 발휘하 " +
-                        "기 위하여 이 황금시대를 영원히 붙잡아 어쩌구 저쩌구오직 우리 청춘에서만 구할 수 있는 것이다 청춘은 인생의 " +
-                        "황금시대다 우리는 이 황금시대의 가치를 충분히 발휘하 " +
-                        "기 위하여 이 황금시대를 영원히 붙잡아 어쩌구 저쩌구", 2));
-        boardItems.add(new GroupBoardItem(0, "게시물 제목2", 0, "게시자2", "abc image", "2017.07.01 오전 1:31",
-                "오직 우리 청춘에서만 구할 수 있는 것이다 청춘은 인생의 " +
-                        "황금시대다 우리는 이 황금시대의 가치를 충분히 발휘하 " +
-                        "기 위하여 이 황금시대를 영원히 붙잡아 어쩌구 저쩌구오직 우리 청춘에서만 구할 수 있는 것이다 청춘은 인생의 " +
-                        "황금시대다 우리는 이 황금시대의 가치를 충분히 발휘하 " +
-                        "기 위하여 이 황금시대를 영원히 붙잡아 어쩌구 저쩌구", 2));
-        boardItems.add(new GroupBoardItem(0, "게시물 제목2", 0, "게시자2", "abc image", "2017.07.01 오전 1:31",
-                "오직 우리 청춘에서만 구할 수 있는 것이다 청춘은 인생의 " +
-                        "황금시대다 우리는 이 황금시대의 가치를 충분히 발휘하 " +
-                        "기 위하여 이 황금시대를 영원히 붙잡아 어쩌구 저쩌구오직 우리 청춘에서만 구할 수 있는 것이다 청춘은 인생의 " +
-                        "황금시대다 우리는 이 황금시대의 가치를 충분히 발휘하 " +
-                        "기 위하여 이 황금시대를 영원히 붙잡아 어쩌구 저쩌구", 2));
-        groupBoardAdapter = new GroupBoardAdapter(this, boardItems);
-        recyclerView.setAdapter(groupBoardAdapter);
-
-        // RecyclerView를 Context 메뉴로 등록
-        registerForContextMenu(recyclerView);
+        tabLayout = (TabLayout) findViewById(R.id.group_tab);
+        tabLayout.setupWithViewPager(viewPager);
+        setTabIcons(tabLayout, pagerAdapter);
     }
 
-    private void handleAlphaOnTitle(float percentage) {
+    private void setTabIcons(TabLayout tabLayout, GroupPagerAdapter pagerAdapter) {
+        final int[] iconList = {
+                R.drawable.ic_add_black_24dp,
+                R.drawable.ic_add_black_24dp,
+                R.drawable.ic_add_black_24dp
+        };
+
+        final int[] selectedIconList = {
+                R.drawable.checkmark,
+                R.drawable.checkmark,
+                R.drawable.checkmark
+        };
+
+        final String[] stringList = {
+
+        };
+
+        for (int i = 0; i < tabLayout.getTabCount(); i++) {
+            tabLayout.getTabAt(i).setText(pagerAdapter.getPageTitle(i));
+            // Set tab's default icon
+            if (i == tabLayout.getSelectedTabPosition())
+                tabLayout.getTabAt(i).setIcon(selectedIconList[i]);
+            else
+                tabLayout.getTabAt(i).setIcon(iconList[i]);
+
+            // Set tab's select/unselect action
+            tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+                @Override
+                public void onTabSelected(TabLayout.Tab tab) {
+                    tab.setIcon(selectedIconList[tab.getPosition()]);
+                }
+
+                @Override
+                public void onTabUnselected(TabLayout.Tab tab) {
+                    tab.setIcon(iconList[tab.getPosition()]);
+                }
+
+                @Override
+                public void onTabReselected(TabLayout.Tab tab) {
+                    tab.setIcon(selectedIconList[tab.getPosition()]);
+                }
+            });
+        }
+    }
+
+    private void handleAlphaOnTitle(float percentage, int visivility) {
         if (percentage >= PERCENTAGE_TO_HIDE_TITLE_DETAILS) {
             if(mIsTheTitleContainerVisible) {
-                startAlphaAnimation(mTitleContainer, ALPHA_ANIMATIONS_DURATION, View.INVISIBLE);
+                startAlphaAnimation(toolbar, ALPHA_ANIMATIONS_DURATION, visivility);
                 mIsTheTitleContainerVisible = false;
             }
 
         } else {
 
             if (!mIsTheTitleContainerVisible) {
-                startAlphaAnimation(mTitleContainer, ALPHA_ANIMATIONS_DURATION, View.VISIBLE);
+                startAlphaAnimation(toolbar, ALPHA_ANIMATIONS_DURATION, visivility);
                 mIsTheTitleContainerVisible = true;
-            }
-        }
-    }
-    private void handleToolbarTitleVisibility(float percentage) {
-        if (percentage >= PERCENTAGE_TO_SHOW_TITLE_AT_TOOLBAR) {
-
-            if(!mIsTheTitleVisible) {
-                startAlphaAnimation(mTitle, ALPHA_ANIMATIONS_DURATION, View.VISIBLE);
-                mIsTheTitleVisible = true;
-            }
-
-        } else {
-
-            if (mIsTheTitleVisible) {
-                startAlphaAnimation(mTitle, ALPHA_ANIMATIONS_DURATION, View.INVISIBLE);
-                mIsTheTitleVisible = false;
             }
         }
     }

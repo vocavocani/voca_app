@@ -17,8 +17,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
-import com.vvn.vocavocani.user.ProfileActivity;
 import com.vvn.vocavocani.R;
+import com.vvn.vocavocani.user.ProfileActivity;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -27,6 +27,34 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        layoutInit();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.app_bar_menu, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+    private void layoutInit() {
+        setToolbarLayout();
+        setContentLayout();
+    }
+
+    private void setToolbarLayout() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -35,7 +63,9 @@ public class MainActivity extends AppCompatActivity{
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+    }
 
+    private void setContentLayout() {
         ViewPager viewPager = (ViewPager) findViewById(R.id.main_view_pager);
         MainPagerAdapter pagerAdapter = new MainPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
@@ -73,25 +103,6 @@ public class MainActivity extends AppCompatActivity{
                 return true;
             }
         });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu items for use in the action bar
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.app_bar_menu, menu);
-
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
     }
 
     private void setTabIcons(TabLayout tabLayout) {

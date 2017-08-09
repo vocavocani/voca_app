@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/board_item"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:layout_marginStart="15dp"
-    android:layout_marginLeft="15dp"
-    android:layout_marginEnd="15dp"
-    android:layout_marginRight="15dp"
-    android:elevation="4dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
     android:padding="1dp"
+    android:elevation="4dp"
     android:background="@color/colorBackground">
     <LinearLayout
         android:id="@+id/board_writer_layout"
         android:layout_width="50dp"
-        android:layout_height="70dp"
+        android:layout_height="80dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:layout_marginStart="10dp"
@@ -32,7 +30,7 @@
             android:id="@+id/writer_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="글쓴이"/>
+            tools:text="@string/group_writer_name"/>
     </LinearLayout>
 
     <LinearLayout
@@ -71,29 +69,68 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:src="@drawable/ic_add_black_24dp"
         android:scaleType="fitCenter"/>
-    
-    <TextView
-        android:id="@+id/content"
+
+    <RelativeLayout
+        android:id="@+id/board_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/board_writer_layout"
-        android:layout_above="@+id/board_reply_layout"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:text="오직 우리 청춘에서만 구할 수 있는 것이다 청춘은 인생의
+        android:layout_marginRight="10dp">
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxHeight="60dp"
+            android:text="오직 우리 청춘에서만 구할 수 있는 것이다 청춘은 인생의
 황금시대다 우리는 이 황금시대의 가치를 충분히 발휘하
-기 위하여 이 황금시대를 영원히 붙잡아 어쩌구 저쩌구"
-        android:ellipsize="end"/>
+기 위하여 이 황금시대를 영원히 붙잡아 어쩌구 저쩌구 djfakasdf"
+            android:maxLines="3"
+            android:ellipsize="end"/>
+
+        <Button
+            android:id="@+id/group_solve_problem_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/content"
+            android:text="문제 풀기"
+            android:visibility="gone"/>
+
+        <HorizontalScrollView
+            android:id="@+id/group_board_img_layout"
+            android:layout_width="match_parent"
+            android:layout_height="105dp"
+            android:layout_below="@+id/content"
+            android:visibility="gone">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:divider="@drawable/horizontal_divider"
+                android:showDividers="middle">
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/test_image"
+                    android:scaleType="fitXY"/>
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/test_image"
+                    android:scaleType="fitXY"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/board_reply_layout"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_alignParentBottom="true">
+        android:layout_below="@+id/board_content">
         <TextView
             android:id="@+id/reply_title"
             android:layout_width="wrap_content"
