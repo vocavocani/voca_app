@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="120dp">
+
+    <ImageView
+        android:id="@+id/member_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/ic_launcher"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/member_image"
+        android:layout_toEndOf="@+id/member_image">
+        <LinearLayout
+            android:id="@+id/member_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/message_btn"
+            android:layout_toStartOf="@+id/message_btn"
+            android:paddingRight="10dp"
+            android:paddingEnd="10dp"
+            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="모임장"
+                android:textColor="@color/colorAccent"
+                android:textSize="13sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="ejt000@naver.com"
+                android:textSize="13sp"/>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/message_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/member_header"
+
+            android:paddingRight="10dp"
+            android:paddingEnd="10dp"
+            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
+            android:paddingBottom="10dp"
+            android:text="소개공간소개공간소개공간소개공간소개공간소개공간소개공간소개공간소개공간소개공간소개공간소개공간소개공간소개공간소개공간소개공간소개공간소개공간소개공간소개공간"
+            android:ellipsize="end"
+            android:maxLines="3"/>
+    </RelativeLayout>
+</RelativeLayout>

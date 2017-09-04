@@ -13,10 +13,10 @@ import com.vvn.vocavocani.R;
 import java.util.ArrayList;
 
 /**
- * Created by soo13 on 2017-08-09.
+ * Created by soo13 on 2017-09-03.
  */
 
-public class GroupBoardFragment extends android.support.v4.app.Fragment {
+public class GroupQuestionFragment extends android.support.v4.app.Fragment {
 
     SwipeRefreshLayout swipeRefreshLayout;
 
@@ -29,7 +29,7 @@ public class GroupBoardFragment extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.group_board, container, false);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.group_question, container, false);
 
         layoutInit(rootView);
 
@@ -46,10 +46,10 @@ public class GroupBoardFragment extends android.support.v4.app.Fragment {
         });
 
         // RecyclerView 생성
-        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.board_list);
-        LinearLayoutManager layoutManager1 = new LinearLayoutManager(getContext());
+        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.question_list);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(layoutManager1);
+        recyclerView.setLayoutManager(layoutManager);
 
         // groupBoardAdapter 생성하면서 연결
         ArrayList<GroupBoardItem> boardItems = new ArrayList<>();
@@ -89,16 +89,16 @@ public class GroupBoardFragment extends android.support.v4.app.Fragment {
                         "기 위하여 이 황금시대를 영원히 붙잡아 어쩌구 저쩌구오직 우리 청춘에서만 구할 수 있는 것이다 청춘은 인생의 " +
                         "황금시대다 우리는 이 황금시대의 가치를 충분히 발휘하 " +
                         "기 위하여 이 황금시대를 영원히 붙잡아 어쩌구 저쩌구", 2));
-        GroupBoardAdapter groupBoardAdapter = new GroupBoardAdapter(getContext(), boardItems);
+        GroupQuestionAdapter groupBoardAdapter = new GroupQuestionAdapter(getContext(), boardItems);
         recyclerView.setAdapter(groupBoardAdapter);
 
         // RecyclerView를 Context 메뉴로 등록
         registerForContextMenu(recyclerView);
     }
 
-    public static GroupBoardFragment getFragment() {
+    public static GroupQuestionFragment getFragment() {
         Bundle bundle = new Bundle();
-        GroupBoardFragment fragment = new GroupBoardFragment();
+        GroupQuestionFragment fragment = new GroupQuestionFragment();
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -111,7 +111,6 @@ public class GroupBoardFragment extends android.support.v4.app.Fragment {
         //SpannableString sb = new SpannableString(" ");
         //ImageSpan imageSpan = new ImageSpan(image, ImageSpan.ALIGN_BOTTOM);
         //sb.setSpan(imageSpan, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        return "Group Board";
+        return "Group Question";
     }
 }
-

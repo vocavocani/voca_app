@@ -4,19 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/board_filter"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        style="@style/Base.Widget.AppCompat.Button.Borderless"
-        android:gravity="end|right"
-        android:text="전체보기"
-        android:textColor="@color/black"/>
-
     <android.support.v4.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/board_filter"
         android:id="@+id/swipeRefresh">
 
         <android.support.v7.widget.RecyclerView
@@ -25,7 +15,7 @@
             android:layout_height="match_parent"
             android:scrollbars="vertical"
             tools:scrollbars="vertical"
-            tools:listitem="@layout/group_board_item"/>
+            tools:listitem="@layout/group_member_item"/>
     </android.support.v4.widget.SwipeRefreshLayout>
 
 </RelativeLayout>

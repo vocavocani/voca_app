@@ -7,169 +7,216 @@
     android:layout_above="@+id/group_menu"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <ScrollView
         android:id="@+id/group_layout"
         android:layout_width="match_parent"
-        android:layout_height="250dp">
-
-        <ImageView
-            android:id="@+id/group_img"
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/test_image"/>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/group_img"
-            android:layout_alignEnd="@+id/group_img"
-            android:layout_alignRight="@+id/group_img"
-            android:padding="5dp"
-            android:background="#88000000">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="모임장"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:textColor="@color/colorTitle"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:text="ㅇㅇㅇ"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:textColor="@color/colorTitle"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginStart="15dp"
-                android:text="모임원"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:textColor="@color/colorTitle"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:text="00"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:textColor="@color/colorTitle"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="명"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:textColor="@color/colorTitle"/>
-        </LinearLayout>
-
+        android:layout_height="match_parent">
         <RelativeLayout
-            android:id="@+id/group_header"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"
-            android:layout_below="@+id/group_img"
-            android:padding="10dp"
-            android:background="@color/colorPrimary">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/group_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="모임 이름"
-                android:textSize="23sp"/>
+            <ImageView
+                android:id="@+id/group_img"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/test_image"/>
 
             <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_toEndOf="@+id/group_title"
-                android:layout_toRightOf="@+id/group_title"
-                android:layout_alignBottom="@+id/group_title"
-                android:layout_margin="0dp"
-                android:padding="0dp"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:src="@drawable/checkmark"
-                android:scaleType="fitCenter"/>
-
-            <LinearLayout
-                android:id="@+id/doing_board"
-                android:layout_width="50dp"
-                android:layout_height="65dp"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:padding="0dp"
-                android:gravity="center"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:orientation="vertical">
-                <ImageView
+                android:layout_alignTop="@+id/group_img"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                android:src="@drawable/checkmark"
+                android:scaleType="fitCenter"
+                android:padding="0dp"/>
+
+            <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignBottom="@+id/group_img"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                android:src="@drawable/checkmark"
+                android:scaleType="fitCenter"
+                android:padding="0dp"/>
+            <RelativeLayout
+                android:id="@+id/group_header"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_below="@+id/group_img"
+                android:padding="10dp"
+                android:background="@color/colorPrimary">
+
+                <TextView
+                    android:id="@+id/group_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="모임 이름"
+                    android:textSize="23sp"/>
+
+                <ImageButton
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:layout_toEndOf="@+id/group_title"
+                    android:layout_toRightOf="@+id/group_title"
+                    android:layout_alignBottom="@+id/group_title"
+                    android:layout_margin="0dp"
+                    android:padding="0dp"
+                    style="@style/Widget.AppCompat.Button.Borderless"
                     android:src="@drawable/checkmark"
                     android:scaleType="fitCenter"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp"
+
+                <LinearLayout
+                    android:id="@+id/group_schedule"
+                    android:layout_width="50dp"
+                    android:layout_height="65dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:padding="0dp"
                     android:gravity="center"
-                    android:text="수행현황"
-                    android:textSize="10sp"/>
-            </LinearLayout>
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/checkmark"
+                        android:scaleType="fitCenter"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp"
+                        android:gravity="center"
+                        android:text="일정관리"
+                        android:textSize="10sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/doing_board"
+                    android:layout_width="50dp"
+                    android:layout_height="65dp"
+                    android:layout_toStartOf="@+id/group_schedule"
+                    android:layout_toLeftOf="@+id/group_schedule"
+                    android:layout_alignParentBottom="true"
+                    android:padding="0dp"
+                    android:gravity="center"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/checkmark"
+                        android:scaleType="fitCenter"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp"
+                        android:gravity="center"
+                        android:text="수행현황"
+                        android:textSize="10sp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/group_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/member_layout"
+                    android:gravity="bottom"
+                    android:text="#tag #tag #tag"/>
+
+                <LinearLayout
+                    android:id="@+id/member_layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:padding="5dp"
+                    android:background="#88000000">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="모임장"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorTitle"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
+                        android:text="ㅇㅇㅇ"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorTitle"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginStart="15dp"
+                        android:text="모임원"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorTitle"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
+                        android:text="00"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorTitle"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="명"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorTitle"/>
+                </LinearLayout>
+
+            </RelativeLayout>
 
             <LinearLayout
-                android:id="@+id/group_rule"
-                android:layout_width="50dp"
-                android:layout_height="65dp"
-                android:layout_toStartOf="@+id/doing_board"
-                android:layout_toLeftOf="@+id/doing_board"
-                android:layout_alignParentBottom="true"
-                android:padding="0dp"
-                android:gravity="center"
-                style="@style/Widget.AppCompat.Button.Borderless"
-                android:orientation="vertical">
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/checkmark"
-                    android:scaleType="fitCenter"/>
+                android:id="@+id/group_body"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/group_header"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/group_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="모임소개글소개글소개글소개글소개글소개글소개글소개글소개글소개글소개글소개글소개글소개글"
+                    android:maxLines="2"
+                    android:ellipsize="end"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="모임 규칙"
+                    android:textColor="@color/black"/>
+
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="15dp"
-                    android:gravity="center"
-                    android:text="모임규칙"
-                    android:textSize="10sp"/>
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:background="@color/colorBackground"
+                    android:elevation="2dp"
+                    android:text="모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙\n모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙\n모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙모임규칙"/>
+
+                <Button
+                    android:id="@+id/group_exit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="모임 탈퇴 신청"/>
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/group_desc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/group_title"
-                android:layout_toStartOf="@+id/group_rule"
-                android:layout_toLeftOf="@+id/group_rule"
-                android:layout_above="@+id/group_tag"
-                android:gravity="center_vertical"
-                android:text="모임소개글소개글소개글소개글소개글소개글소개글소개글소개글소개글소개글소개글소개글소개글"
-                android:maxLines="2"
-                android:ellipsize="end"/>
-
-            <TextView
-                android:id="@+id/group_tag"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:gravity="bottom"
-                android:text="#tag #tag #tag"/>
-
-
         </RelativeLayout>
-
-    </RelativeLayout>
+    </ScrollView>
 
 </LinearLayout>

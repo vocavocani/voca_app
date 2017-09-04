@@ -22,7 +22,7 @@ public class GroupPagerAdapter extends FragmentPagerAdapter {
             case 1:
                 return GroupBoardFragment.getFragment();
             case 2:
-                return GroupProblemFragment.getFragment();
+                return GroupQuestionFragment.getFragment();
             default:
                 return null;
         }
@@ -41,7 +41,7 @@ public class GroupPagerAdapter extends FragmentPagerAdapter {
             case 1:
                 return GroupBoardFragment.getTitle();
             case 2:
-                return GroupProblemFragment.getTitle();
+                return GroupQuestionFragment.getTitle();
             default:
                 return null;
         }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:paddingLeft="40dp"
+    android:paddingStart="40dp"
+    android:paddingRight="40dp"
+    android:paddingEnd="40dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:hint="이메일을 입력하세요"
+            android:textSize="15sp"/>
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:text="인증"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="해당 이메일 주소로 보내드린 링크 클릭 후 아래 인증 완료 버튼을 클릭해주세요"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:text="이메일 재발송 요청"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorPrimary"
+        android:text="인증 완료"
+        android:textColor="@color/colorTitle"
+        android:textSize="17sp"
+        android:textStyle="bold"/>
+</LinearLayout>

@@ -8,13 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.vvn.vocavocani.GroupInfo;
 import com.vvn.vocavocani.R;
 import com.vvn.vocavocani.group.GroupActivity;
-import com.vvn.vocavocani.group.GroupCreateActivity;
 
 import java.util.ArrayList;
 
@@ -47,7 +45,7 @@ public class MyGroupFragment extends android.support.v4.app.Fragment {
         }
 
         setGridView(rootView);
-
+/*
         ImageButton createGroupBtn = (ImageButton) rootView.findViewById(R.id.group_create_btn);
         createGroupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +53,7 @@ public class MyGroupFragment extends android.support.v4.app.Fragment {
                 Intent intent = new Intent(getActivity(), GroupCreateActivity.class);
                 startActivity(intent);
             }
-        });
+        });*/
         return rootView;
     }
 
@@ -81,6 +79,7 @@ public class MyGroupFragment extends android.support.v4.app.Fragment {
         ArrayList<GroupInfo> groupInfos = new ArrayList<>();
         groupInfos.add(new GroupInfo(0, "모임 이름1"));
         groupInfos.add(new GroupInfo(0, "모임 이름2"));
+        groupInfos.add(null);
 
         GroupGridAdapter adapter = new GroupGridAdapter (
                 getContext(),

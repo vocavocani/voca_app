@@ -12,6 +12,7 @@ public class GroupBoardItem {
     private String boardWriterPhoto;
     private String timestamp;
     private String content;
+    private int boardType;
     private int replyCount;
 
     public GroupBoardItem(int boardId, String boardTitle, int boardWriterId,

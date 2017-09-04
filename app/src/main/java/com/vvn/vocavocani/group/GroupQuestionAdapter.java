@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -18,21 +19,21 @@ import com.vvn.vocavocani.R;
 import java.util.ArrayList;
 
 /**
- * Created by soo13 on 2017-08-06.
+ * Created by soo13 on 2017-09-03.
  */
 
-public class GroupBoardAdapter extends RecyclerView.Adapter<GroupBoardAdapter.ViewHolder> {
+public class GroupQuestionAdapter extends RecyclerView.Adapter<GroupQuestionAdapter.ViewHolder> {
     private Context mContext;
     private ArrayList<GroupBoardItem> memoDatas;
 
-    public GroupBoardAdapter(Context context, ArrayList<GroupBoardItem> memoData) {
+    public GroupQuestionAdapter(Context context, ArrayList<GroupBoardItem> memoData) {
         this.memoDatas = memoData;
         this.mContext = context;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.group_board_item, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.group_question_item, parent, false);
         return new ViewHolder(v);
     }
 
@@ -52,7 +53,15 @@ public class GroupBoardAdapter extends RecyclerView.Adapter<GroupBoardAdapter.Vi
                 // 뷰 누를경우 상세 보기로 이동
                 Toast.makeText(mContext, "클릭 "+pos, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(mContext, GroupBoardDetailActivity.class);
+                intent.putExtra("type", GroupBoardDetailActivity.QUESTION);
                 mContext.startActivity(intent);
+            }
+        });
+
+        holder.solveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, "문제풀기 "+pos, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -90,7 +99,8 @@ public class GroupBoardAdapter extends RecyclerView.Adapter<GroupBoardAdapter.Vi
     private void setViewText(ViewHolder holder, int position) {
         holder.title.setText(memoDatas.get(position).getBoardTitle());
         holder.writer.setText(memoDatas.get(position).getBoardWriterName());
-        holder.timestamp.setText(memoDatas.get(position).getTimestamp());
+        holder.startTime.setText(memoDatas.get(position).getTimestamp());
+        holder.endTime.setText(memoDatas.get(position).getTimestamp());
         holder.content.setText(memoDatas.get(position).getContent());
         holder.replyCount.setText(String.valueOf(memoDatas.get(position).getReplyCount()));
     }
@@ -100,20 +110,24 @@ public class GroupBoardAdapter extends RecyclerView.Adapter<GroupBoardAdapter.Vi
         RelativeLayout boardItemLayout;
         TextView title;
         TextView writer;
-        TextView timestamp;
+        TextView startTime;
+        TextView endTime;
         TextView content;
         TextView replyCount;
         ImageView writerPhoto;
+        Button solveButton;
 
         public ViewHolder(View view) {
             super(view);
             boardItemLayout = (RelativeLayout) view.findViewById(R.id.board_item);
             title = (TextView) view.findViewById(R.id.title);
             writer = (TextView) view.findViewById(R.id.writer_name);
-            timestamp = (TextView) view.findViewById(R.id.timestamp);
+            startTime = (TextView) view.findViewById(R.id.start_time);
+            endTime = (TextView) view.findViewById(R.id.end_time);
             content = (TextView) view.findViewById(R.id.content);
             replyCount = (TextView) view.findViewById(R.id.reply_count);
             writerPhoto = (ImageView) view.findViewById(R.id.writer_photo);
+            solveButton = (Button) view.findViewById(R.id.group_solve_problem_btn);
         }
     }
 }

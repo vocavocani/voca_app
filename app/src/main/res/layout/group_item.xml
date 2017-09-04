@@ -11,28 +11,45 @@
         android:layout_height="100dp"
         android:background="@color/black" />
 
+    <ImageButton
+        android:id="@+id/group_create_btn"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:padding="20dp"
+        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:background="#555555"
+        android:src="@drawable/ic_add_black_24dp"
+        android:scaleType="fitCenter"/>
+
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="18dp"
         android:layout_marginTop="3dp"
         android:layout_below="@+id/group_img">
         <TextView
             android:id="@+id/group_name"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="18dp"
             android:text="모임 이름"/>
 
         <TextView
             android:id="@+id/group_new"
+            android:minWidth="18dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="18dp"
             android:layout_marginLeft="4dp"
             android:layout_marginStart="4dp"
+            android:paddingLeft="3dp"
+            android:paddingStart="3dp"
+            android:paddingRight="3dp"
+            android:paddingEnd="3dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
             android:layout_toRightOf="@+id/group_name"
-            android:visibility="gone"
-            android:text="NEW"
+            android:background="@drawable/badge"
+            android:gravity="center"
+            android:text="5"
             android:textSize="11sp"
-            android:textColor="@color/colorAccent"/>
+            android:textColor="@color/colorBackground"/>
     </RelativeLayout>
-
 </RelativeLayout>

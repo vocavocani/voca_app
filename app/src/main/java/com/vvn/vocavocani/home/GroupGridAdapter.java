@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.vvn.vocavocani.GroupInfo;
@@ -52,14 +53,21 @@ public class GroupGridAdapter extends BaseAdapter {
 
         TextView groupName = (TextView) convertView.findViewById(R.id.group_name);
         TextView groupNew = (TextView) convertView.findViewById(R.id.group_new);
+        ImageView groupCreateBtn = (ImageView) convertView.findViewById(R.id.group_create_btn);
 
-        groupName.setText(groupInfos.get(position).getGroupName());
-        if (groupInfos.get(position).isNew()) {
-            groupNew.setVisibility(View.VISIBLE);
-        } else {
+        if (groupInfos.get(position) == null) {
+            groupCreateBtn.setVisibility(View.VISIBLE);
+            groupName.setText("");
             groupNew.setVisibility(View.GONE);
+        } else {
+            groupCreateBtn.setVisibility(View.GONE);
+            groupName.setText(groupInfos.get(position).getGroupName());
+            if (groupInfos.get(position).isNew()) {
+                groupNew.setVisibility(View.VISIBLE);
+            } else {
+                groupNew.setVisibility(View.GONE);
+            }
         }
-
         return convertView;
     }
 }

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/board_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
+        android:background="@color/colorTitle">
+
+        <RelativeLayout
+            android:id="@+id/board_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+            <ImageView
+                android:id="@+id/board_profile_img"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
+                android:src="@mipmap/ic_launcher"/>
+            <TextView
+                android:id="@+id/board_writer"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/board_profile_img"
+                android:text="게시자"
+                android:textSize="13sp"
+                android:gravity="center_horizontal"/>
+
+            <TextView
+                android:id="@+id/board_title"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_toRightOf="@+id/board_profile_img"
+                android:layout_toEndOf="@+id/board_profile_img"
+                android:text="게시물 제목"
+                android:gravity="center_vertical"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/board_type"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:layout_toRightOf="@+id/board_title"
+                android:layout_toEndOf="@+id/board_title"
+                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:text="D-14"
+                android:gravity="center"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:id="@+id/start_time"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@+id/board_type"
+                android:layout_toRightOf="@+id/board_profile_img"
+                android:layout_toEndOf="@+id/board_profile_img"
+                android:text="2017년 7월 2일 오전 00:00"
+                android:textSize="13sp"
+                android:gravity="center_vertical"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_toRightOf="@+id/start_time"
+                android:layout_toEndOf="@+id/start_time"
+                android:layout_alignTop="@+id/start_time"
+                android:text="~"/>
+
+            <TextView
+                android:id="@+id/end_time"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@+id/start_time"
+                android:layout_toRightOf="@+id/board_profile_img"
+                android:layout_toEndOf="@+id/board_profile_img"
+                android:text="2017년 7월 2일 오전 00:00"
+                android:textSize="13sp"
+                android:gravity="center_vertical"/>
+
+            <ImageButton
+                android:id="@+id/board_setting_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                android:padding="0dp"
+                android:src="@drawable/checkmark"
+                android:scaleType="fitCenter"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/board_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/board_header"
+            android:minHeight="70dp"
+            android:padding="15dp"
+            android:text="영락과 부패 뿐이다 낙원을 머시기 영락과 부패 뿐이다 낙원을 머시기 영락과 부패 뿐이다 낙원을 머시기 영락과 부패 뿐이다 낙원을 머시기 영락과 부패 뿐이다 낙원을 머시기 영락과 부패 뿐이다 낙원을 머시기 "/>
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/group_solve_problem_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/board_layout"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="문제 풀기"/>
+
+    <LinearLayout
+        android:id="@+id/comment_count_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@+id/group_solve_problem_btn"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
+            android:text="댓글"
+            android:gravity="center"
+            android:textSize="13sp"/>
+        <TextView
+            android:id="@+id/comment_count"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="0"
+            android:gravity="center"
+            android:textSize="13sp"/>
+    </LinearLayout>
+</RelativeLayout>
