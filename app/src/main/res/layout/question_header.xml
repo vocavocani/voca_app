@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/question_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground">
+
+        <TextView
+            android:id="@+id/question_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/divider"
+            android:layout_toStartOf="@+id/divider"
+            android:text="1"
+            android:textSize="14sp"/>
+        <TextView
+            android:id="@+id/divider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/question_end_number"
+            android:layout_toStartOf="@+id/question_end_number"
+            android:text="/"
+            android:textSize="14sp"/>
+        <TextView
+            android:id="@+id/question_end_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:text="10"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/question_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/question_number"
+            android:text="1~~~~~~~~~~~"
+            android:textSize="30sp"/>
+
+    </RelativeLayout>
+</RelativeLayout>

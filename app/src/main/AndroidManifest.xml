@@ -48,6 +48,9 @@
         <activity
             android:name=".group.GroupBoardDetailActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".question.QuestionActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <!--
             android:label="@string/title_activity_scrolling" -->
     </application>

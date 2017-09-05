@@ -2,7 +2,6 @@ package com.vvn.vocavocani.group;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +33,6 @@ public class GroupBoardCommentAdapter extends RecyclerView.Adapter<RecyclerView.
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Log.d("ViewType TEST", ""+viewType);
         switch (viewType) {
             case HEADER:
                 View header = LayoutInflater.from(parent.getContext()).inflate(R.layout.group_board_detail_header, parent, false);

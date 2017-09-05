@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.vvn.vocavocani.R;
+import com.vvn.vocavocani.question.QuestionActivity;
 
 import java.util.ArrayList;
 
@@ -37,15 +38,12 @@ public class GroupQuestionAdapter extends RecyclerView.Adapter<GroupQuestionAdap
         return new ViewHolder(v);
     }
 
-    // 출력 될 아이템 관리
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final int pos = position;
-        // 각 뷰에 값넣기
 
         setViewText(holder, pos);
-
 
         holder.boardItemLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +60,8 @@ public class GroupQuestionAdapter extends RecyclerView.Adapter<GroupQuestionAdap
             @Override
             public void onClick(View v) {
                 Toast.makeText(mContext, "문제풀기 "+pos, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(mContext, QuestionActivity.class);
+                mContext.startActivity(intent);
             }
         });
 
