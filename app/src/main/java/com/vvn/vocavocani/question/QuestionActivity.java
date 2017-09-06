@@ -1,13 +1,14 @@
 package com.vvn.vocavocani.question;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +36,17 @@ public class QuestionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         layoutInit();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home: {
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void layoutInit() {
@@ -114,6 +126,8 @@ public class QuestionActivity extends AppCompatActivity {
                     setQuestion();
                 } else {
                     Toast.makeText(v.getContext(), "마지막 문제", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(v.getContext(), ResultActivity.class);
+                    startActivity(intent);
                 }
             }
         });
