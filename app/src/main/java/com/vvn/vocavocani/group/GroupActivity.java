@@ -1,5 +1,6 @@
 package com.vvn.vocavocani.group;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.TabLayout;
@@ -14,6 +15,7 @@ import android.view.animation.AlphaAnimation;
 import android.widget.Toast;
 
 import com.vvn.vocavocani.R;
+import com.vvn.vocavocani.question.WorkBookCreateActivity;
 
 public class GroupActivity extends AppCompatActivity
         implements AppBarLayout.OnOffsetChangedListener {
@@ -59,7 +61,9 @@ public class GroupActivity extends AppCompatActivity
                         Toast.makeText(this, "Add board article", Toast.LENGTH_SHORT).show();
                         break;
                     case 2:
-                        Toast.makeText(this, "Add problem popup", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Add question", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(this, WorkBookCreateActivity.class);
+                        startActivity(intent);
                         break;
                     case 4:
                         Toast.makeText(this, "Add question popup", Toast.LENGTH_SHORT).show();
