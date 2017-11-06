@@ -54,6 +54,9 @@
 
         <activity android:name=".question.ResultActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".question.WorkBookCreateActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <!--
             android:label="@string/title_activity_scrolling" -->
     </application>
